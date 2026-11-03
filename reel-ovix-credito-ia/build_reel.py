@@ -48,11 +48,11 @@ F_REG = find_font(["Montserrat-Medium.ttf", "Montserrat-Regular.ttf", "Montserra
 # MONTAGGIO VIDEO: (clip, inizio, fine) sulla timeline finale, in secondi
 # ---------------------------------------------------------------------------
 SCENES = [
-    ("clip1.mp4", 0.0, 5.8),    # Gancio - titolare B&B sorpresa dal telefono
+    ("clip1.mp4", 0.0, 5.8),    # Gancio - direttrice di hotel sorpresa dal telefono
     ("clip2.mp4", 5.8, 10.4),   # La notizia - documento di bilancio
-    ("clip3.mp4", 10.4, 14.6),  # Cosa riguarda - parrucchiere con tablet
+    ("clip3.mp4", 10.4, 14.6),  # Cosa riguarda - titolare di negozio con tablet
     ("clip4.mp4", 14.6, 19.0),  # OVIX - assistente AI risponde alle 2 di notte
-    ("clip5.mp4", 19.0, 23.6),  # OVIX - automazioni, studio tattoo
+    ("clip5.mp4", 19.0, 23.6),  # OVIX - automazioni, studio professionale
     ("clip6.mp4", 23.6, 30.4),  # Urgenza - clessidra, fondi limitati
     ("clip7.mp4", 30.4, 34.4),  # CTA - Aosta / Valle d'Aosta
     (None, 34.4, TOTAL),        # Chiusura - logo + disclaimer (grafica)
@@ -94,10 +94,10 @@ TITLES = [
     (0.0, 5.8, "LO SAI CHE…", "FINO AL 30%\nDI CREDITO\nD'IMPOSTA SULL'IA?", "dal 2027 · se la legge verrà approvata", "hook"),
     (5.8, 10.4, "LA NOTIZIA", "DDL BILANCIO\n2027", "IN PARLAMENTO · NON ANCORA LEGGE", "warn"),
     (10.4, 14.6, "COSA RIGUARDA", "ABBONAMENTI\nCLOUD E IA", "costi 2027 · 2028 · 2029", "std"),
-    (14.6, 19.0, "OVIX AI SOLUTIONS", "ASSISTENTI AI\n24/7", "sito · WhatsApp · Telegram", "std"),
+    (14.6, 19.0, "OVIX · PER OGNI PMI", "ASSISTENTI AI\n24/7", "sito · WhatsApp · Telegram", "std"),
     (19.0, 23.6, "IN ABBONAMENTO", "AUTOMAZIONI\nSU MISURA", "conformi AI Act e GDPR\n→ potrebbero rientrare", "std"),
     (23.6, 30.4, "PERCHÉ ORA", "FONDI\nLIMITATI", "30 mln €/anno · regole da definire", "std"),
-    (30.4, 34.4, "E ADESSO?", "SEGUI\nE SCRIVICI\nIN DM", "per capire se la tua attività potrebbe rientrare", "std"),
+    (30.4, 34.4, "HOTEL · NEGOZI · STUDI · PMI", "SEGUI\nE SCRIVICI\nIN DM", "per capire se la tua attività potrebbe rientrare", "std"),
 ]
 
 DISCLAIMER = ("Contenuto informativo. Il DDL di bilancio 2027 non è ancora legge: "
@@ -234,7 +234,7 @@ def end_card(logo, out):
     lg = logo.resize((lw, int(logo.height * lw / logo.width)), Image.LANCZOS)
     img.paste(lg, ((W - lw) // 2, 330))
     y = 330 + lg.height + 40
-    y = text_block(d, 0, y, ["AI Solutions · Aosta"], ImageFont.truetype(F_BOLD, 44), (200, 200, 200)) + 70
+    y = text_block(d, 0, y, ["AI Solutions per le PMI · Aosta"], ImageFont.truetype(F_BOLD, 44), (200, 200, 200)) + 70
     y = pill(d, W / 2, y, "SEGUI PER GLI AGGIORNAMENTI", ImageFont.truetype(F_BLACK, 46), YELLOW, BLACK) + 26
     y = pill(d, W / 2, y, "SCRIVICI IN DM", ImageFont.truetype(F_BLACK, 46), WHITE, BLACK) + 50
     y = text_block(d, 0, y, wrap(d, "Prima di tutto, parlane col tuo commercialista.", ImageFont.truetype(F_BOLD, 46), W - 160),
